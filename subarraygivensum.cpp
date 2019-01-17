@@ -31,26 +31,38 @@ using namespace std;
 
 void subarray( int a[],int n, int s)
 {
-	int sum=0,f=0,i=0;
+	int sum=0,f=0,i=0,k=0;
 	//cout<<"run    ";
 	for (i=0;i<n;i++)
 	{
 		sum=sum+a[i];
+		//cout<<sum<<"   "<<i<<endl;
 		if (sum==s)
 			break;
 		else if (sum>s)
 		{
-			for (f=0;f<i;f++)
+			for (f;f<i;f++)
 			{
 				sum=sum-a[f];
 			//	cout<<f;
 				if (sum==s)
 					break;
+				else if (sum<s)
+				{
+					//cout<<sum<<" "<<f;
+					sum=0;
+					k=f;
+					f=i;
+					i--;
+					//break;
+				}
 			}f++;
 			if(f>i)
 			{
+				//cout<<sum;
+				f=k;
 				sum=0;
-
+				cout<<"  nope"<<endl;
 			}
 			else
 				break;
