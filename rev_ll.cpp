@@ -45,6 +45,9 @@ void append(struct Node** head_ref, struct Node **tail_ref,
 /* Function to get the middle of the linked list*/
 struct Node *reverse(struct Node *head)
 {
+	struct Node* rev = new Node;
+	rev->data=head->data;
+	rev->next=NULL;
 	
 }
 void printList(struct Node *head)
